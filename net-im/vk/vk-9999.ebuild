@@ -16,6 +16,7 @@ DEPEND="sys-libs/ncurses
 	dev-lang/dmd
 	dev-util/dub
 	dev-util/dlang-tools
+	>=media-video/mpv-0.9.0
 	"
 
 src_compile() {

@@ -11,7 +11,7 @@ fi
 
 # srcd = path of newest link to iso of systemrescuecd, created by the ebuild
 #        of systemrescuecd-x86
-srcd="/systemrescuecd/systemrescuecd-x86-newest.iso"
+srcd="/boot/systemrescuecd/systemrescuecd-x86-newest.iso"
 
 longname="SystemRescueCD"
 bootops=")"
@@ -33,28 +33,28 @@ if [ -f "${srcd}" ]; then
 submenu "${longname}" --class submenu {
 	menuentry "${longname} (32bit standard${bootops}" --class rescue {
 ${grub_string}
-		set isofile=${srcd}
+		set isofile=${path}
 		loopback loop \${isofile}
 		linux (loop)/isolinux/rescue32 ${SRCD_BOOTOPTIONS} isoloop=\${isofile}
 		initrd (loop)/isolinux/initram.igz
 	}
 	menuentry "${longname} (64bit standard${bootops}" --class rescue {
 ${grub_string}
-		set isofile=${srcd}
+		set isofile=${path}
 		loopback loop \${isofile}
 		linux (loop)/isolinux/rescue64 ${SRCD_BOOTOPTIONS} isoloop=\${isofile}
 		initrd (loop)/isolinux/initram.igz
 	}
 	menuentry "${longname} (32bit alternative${bootops}" --class rescue {
 ${grub_string}
-		set isofile=${srcd}
+		set isofile=${path}
 		loopback loop \${isofile}
 		linux (loop)/isolinux/altker32 ${SRCD_BOOTOPTIONS} isoloop=\${isofile}
 		initrd (loop)/isolinux/initram.igz
 	}
 	menuentry "${longname} (64bit alternative${bootops}" --class rescue {
 ${grub_string}
-		set isofile=${srcd}
+		set isofile=${path}
 		loopback loop \${isofile}
 		linux (loop)/isolinux/altker64 ${SRCD_BOOTOPTIONS} isoloop=\${isofile}
 		initrd (loop)/isolinux/initram.igz

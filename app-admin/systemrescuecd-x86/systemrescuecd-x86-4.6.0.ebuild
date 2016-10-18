@@ -19,18 +19,18 @@ DEPEND="isohybrid? ( >=sys-boot/syslinux-4 )"
 S=${WORKDIR}
 
 src_install() {
-	insinto "/usr/share/${PN%-*}"
+	insinto "/boot/${PN%-*}"
 	doins "${DISTDIR}/${P}.iso"
 
 	if use isohybrid; then
-		set -- isohybrid -u "${ED}usr/share/${PN%-*}/${P}.iso"
+		set -- isohybrid -u "${ED}boot/${PN%-*}/${P}.iso"
 		echo "${@}"
 		"${@}" || die "${*} failed"
 	fi
 }
 
 pkg_postinst() {
-	local f=${EROOT%/}/usr/share/${PN%-*}/${PN}-newest.iso
+	local f=${EROOT%/}/boot/${PN%-*}/${PN}-newest.iso
 
 	# no version newer than ours? we're the newest!
 	if ! has_version ">${CATEGORY}/${PF}"; then
@@ -39,7 +39,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	local f=${EROOT%/}/usr/share/${PN%-*}/${PN}-newest.iso
+	local f=${EROOT%/}/boot/${PN%-*}/${PN}-newest.iso
 
 	# if there is no version newer than ours installed
 	if ! has_version ">${CATEGORY}/${PF}"; then

@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/systemrescuecd/sysresccd-${PN#*-}/${PV}/${P}.iso"
 
 LICENSE="GPL-2"
 SLOT="${PV}"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 amd64"
 IUSE="+isohybrid"
 
 DEPEND="isohybrid? ( >=sys-boot/syslinux-4 )"

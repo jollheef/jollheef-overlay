@@ -29,6 +29,9 @@ src_install() {
         insinto /etc/dbus-1/system.d/
         doins data/org.asamk.Signal.conf
 
+        insinto /usr/share/dbus-1/system-services/
+        doins data/org.asamk.Signal.service
+
 	newinitd "${FILESDIR}"/signal-cli.init signal-cli
         newconfd "${FILESDIR}"/signal-cli.conf signal-cli
 }

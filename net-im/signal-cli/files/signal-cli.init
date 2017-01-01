@@ -30,6 +30,7 @@ start() {
 
     touch ${LOG}
     chown signal:signal ${LOG}
+    chmod 600 ${LOG}
 
     start-stop-daemon --start --background \
                       --user ${USER} \

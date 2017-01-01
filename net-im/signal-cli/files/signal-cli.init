@@ -1,0 +1,53 @@
+#!/sbin/openrc-run
+# Copyright 2015 Mikhail Klementyev <jollheef <AT> riseup.net>
+# Distributed under the terms of the GNU General Public License v3
+# $Id$
+
+NAME="signal-cli"
+USER="signal"
+
+BIN="/usr/bin/${NAME}"
+PID="/var/run/${NAME}.pid"
+CONFIG_PATH="/var/lib/signal-cli"
+LOG="/var/log/signal.log"
+
+LD_LIBRARY_PATH=/usr/lib64/libmatthew-java:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH
+
+extra_commands="link"
+
+depend() {
+    need net
+}
+
+start() {
+    ebegin "Starting ${NAME}"
+
+    if ! [ -n "${PHONE}" ]; then
+        eerror "Phone number not set (var PHONE in /etc/conf.d/signal-cli)"
+        eend 1
+    fi
+
+    touch ${LOG}
+    chown signal:signal ${LOG}
+
+    start-stop-daemon --start --background \
+                      --user ${USER} \
+                      --pidfile ${PID} --make-pidfile \
+                      -1 ${LOG} -2 ${LOG} \
+                      --exec ${BIN} -- -u ${PHONE} --config ${CONFIG_PATH} daemon --system
+
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping ${NAME}"
+
+    start-stop-daemon --stop --user ${USER} --pidfile ${PID}
+
+    eend $?
+}
+
+link() {
+    su ${USER} -s /bin/bash -c "${BIN} --config ${CONFIG_PATH} link"
+}

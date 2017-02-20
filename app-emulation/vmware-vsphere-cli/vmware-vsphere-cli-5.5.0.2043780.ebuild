@@ -6,6 +6,8 @@
 # to download VMWare. The agreeing to a licence is part of the configure step
 # which the user must run manually.
 
+# TODO https://communities.vmware.com/thread/488747?start=0&tstart=0
+
 EAPI=5
 
 inherit eutils perl-module versionator

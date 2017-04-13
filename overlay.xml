@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <repositories version="1.0">
-  <repo priority="50" status="unofficial">
-    <name>jollheef</name>
-    <description>Collection of various ebuilds</description>
-    <homepage>http://github.com/jollheef/ebuilds</homepage>
-    <owner>
-      <email>jollheef@riseup.net</email>
-    </owner>
-    <source type="git">git://github.com/jollheef/ebuilds.git</source>
-  </repo>
+  <repo quality="experimental" status="unofficial">
+  <name>jollheef</name>
+  <description lang="en">Collection of various ebuilds</description>
+  <homepage>https://github.com/jollheef/ebuilds</homepage>
+  <owner type="person">
+    <email>jollheef@riseup.net</email>
+    <name>Mikhail Klementyev</name>
+  </owner>
+  <source type="git">https://github.com/jollheef/ebuilds.git</source>
+  <source type="git">git://github.com/jollheef/ebuilds.git</source>
+  <source type="git">git@github.com:jollheef/ebuilds.git</source>
+  <feed>https://github.com/jollheef/ebuilds/commits/master.atom</feed>
+</repo>
 </repositories>

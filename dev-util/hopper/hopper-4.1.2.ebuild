@@ -7,7 +7,7 @@ EAPI=5
 inherit eutils
 
 DESCRIPTION="Reverse engineering tool that lets you disassemble and decompile 32/64 bits intel and ARM executables"
-SRC_URI="https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-4.1.2-Linux.pkg.tar.xz"
+SRC_URI="https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-${PV}-Linux.pkg.tar.xz"
 
 LICENSE="Commercial"
 SLOT="0"

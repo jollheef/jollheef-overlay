@@ -29,11 +29,10 @@ src_install() {
 	insinto /
 	doins -r {usr,opt}
 
-	echo -e '#!/bin/sh\n/opt/hopper-v4/bin/hopper-launcher.sh' >> hopper
+	echo -e '#!/bin/sh\n/opt/hopper-v4/bin/Hopper' >> hopper
 	exeinto /usr/bin
 	doexe hopper
 
 	exeinto /opt/hopper-v4/bin
 	doexe opt/hopper-v4/bin/Hopper
-	doexe opt/hopper-v4/bin/hopper-launcher.sh
 }

@@ -9,9 +9,7 @@ SLOT="0"
 KEYWORDS="amd64"
 
 src_install() {
-	emake DESTDIR="${D}" install
-	einstalldocs
-	
+	default
 	mkdir afl
 	cp {types,config}.h afl/
 	doheader -r afl

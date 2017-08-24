@@ -7,3 +7,12 @@ SRC_URI="http://lcamtuf.coredump.cx/afl/releases/${P}.tgz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64"
+
+src_install() {
+	emake DESTDIR="${D}" install
+	einstalldocs
+	
+	mkdir afl
+	cp {types,config}.h afl/
+	doheader -r afl
+}

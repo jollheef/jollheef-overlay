@@ -17,6 +17,7 @@ RESTRICT="bindist strip"
 
 RDEPEND="dev-qt/qtgui:5
 		dev-qt/qtcore:5
+		dev-qt/qtxml:5
 		x11-misc/xdg-utils
 		media-libs/tiff
 		dev-libs/libbsd

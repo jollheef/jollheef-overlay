@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 inherit eutils
 
@@ -22,7 +22,9 @@ RDEPEND="dev-qt/qtgui:5
 		media-libs/tiff
 		dev-libs/libbsd
 		dev-lang/python:2.7
-		>=sys-devel/gcc-5.1.0"
+		>=sys-devel/gcc-5.1.0
+		sys-libs/ncurses
+		sys-libs/binutils-libs"
 
 S=${WORKDIR}
 
@@ -30,10 +32,7 @@ src_install() {
 	insinto /
 	doins -r {usr,opt}
 
-	echo -e '#!/bin/sh\n/opt/hopper-v4/bin/Hopper' >> hopper
-	exeinto /usr/bin
-	doexe hopper
-
 	exeinto /opt/hopper-v4/bin
 	doexe opt/hopper-v4/bin/Hopper
+	dosym /opt/hopper-v4/bin/Hopper /usr/bin/hopper
 }

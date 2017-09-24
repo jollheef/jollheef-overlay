@@ -29,6 +29,11 @@ src_install() {
 	    doexe ${file}
 	done
 
+	exeinto /opt/atlassian-plugin-sdk/apache-maven-*/bin
+	find atlassian-plugin-sdk/apache-maven-*/bin | while read file; do
+	    doexe ${file}
+	done
+
 	echo 'export PATH=/opt/atlassian-plugin-sdk/bin' > 99atlassian-plugin-sdk
 	doenvd 99atlassian-plugin-sdk
 }

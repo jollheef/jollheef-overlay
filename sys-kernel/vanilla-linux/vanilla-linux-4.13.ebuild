@@ -68,8 +68,8 @@ src_install() {
 }
 
 pkg_postinst() {
-	ewarn "Do not forget to `grub-mkconfig -o /boot/grub/grub.cfg`"
+	ewarn "Do not forget to 'grub-mkconfig -o /boot/grub/grub.cfg'"
 	if use cryptsetup; then
-		ewarn "    and regenerate initramfs (e.g. `genkernel --luks initramfs`)."
+		ewarn "    and regenerate initramfs (e.g. 'genkernel --luks initramfs')."
 	fi
 }

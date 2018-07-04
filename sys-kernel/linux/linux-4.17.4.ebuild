@@ -77,13 +77,16 @@ src_prepare() {
 src_install() {
 	mkdir -p ./boot
 	make install INSTALL_PATH=./boot
-	insinto /boot
+	insinto /usr/share/linux-${PV}/
 	ls ./boot | while read file; do
 	        doins ./boot/${file}
 	done
 }
 
 pkg_postinst() {
+        # Hack for leave all kernel files after unmerge, to be able to boot old kernel
+        cp /usr/share/linux-${PV}/* /boot/
+
         if use initramfs; then
                 if use cryptsetup; then
                         GENKERNEL_ARGS=--luks

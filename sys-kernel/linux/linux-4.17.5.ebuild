@@ -13,7 +13,7 @@ SRC_URI="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cryptsetup suid +initramfs +grub"
+IUSE="cryptsetup suid +initramfs +grub kspp"
 
 DEPEND="sys-devel/make
         sys-devel/binutils
@@ -26,24 +26,41 @@ RDEPEND="${DEPEND}"
 
 ARCH=x86
 
+apply_config() {
+	CONFIG=${1}
+	grep -v -e '^#' -e '^$' ${CONFIG} | while read CONF; do
+		config --${CONF}
+	done
+}
+
 src_prepare() {
 	default
+        PATH=$PATH:./scripts/
 
-	echo 'config LOCAL_CONFIG' >> Kconfig
-	echo -e '\tbool "Local configuration"' >> Kconfig
-	echo -e '\tdefault y' >> Kconfig
+        # /etc/linux/Kconfig
+        # config INTEL_NUC_7I7DN
+        #         bool "Intel NUC 7i7DN"
+        #         default y
+        #
+        #         select BLABLABLA
+        #         ...
+        if [ -e /etc/linux/Kconfig ]; then
+                echo 'source "/etc/linux/Kconfig"' >> Kconfig
+        fi
 
-	if use cryptsetup; then
-		echo -e '\tselect DM_CRYPT' >> Kconfig
-		echo -e '\tselect CRYPTO_USER_API_SKCIPHER' >> Kconfig
-		cat /proc/cpuinfo | grep aes >/dev/null && {
-			echo -e '\tselect CRYPTO_AES_NI_INTEL' >> Kconfig
-		}
+	make defconfig 2>&1 | grep -i warning && die "Broken config"
+
+        if use cryptsetup; then
+		config --enable DM_CRYPT
+		config --enable CRYPTO_USER_API_SKCIPHER
+		config --enable CRYPTO_AES_NI_INTEL
 	fi
 
 	if use suid; then
-		echo -e '\tselect USER_NS' >> Kconfig
+		config --enable USER_NS
 	fi
+
+        use kspp && apply_config ${FILESDIR}/kspp.config
 
 	# make.conf:
 	# # qemu
@@ -57,21 +74,11 @@ src_prepare() {
 	# # audio
 	# ...
 	for i in $KCONFIG; do
-		echo -e "\tselect $i" >> Kconfig
+		config --enable ${i}
 	done
 
-        # /etc/linux/Kconfig
-        # config INTEL_NUC_7I7DN
-        #         bool "Intel NUC 7i7DN"
-        #         default y
-        #
-        #         select BLABLABLA
-        #         ...
-        if [ -e /etc/linux/Kconfig ]; then
-                echo 'source "/etc/linux/Kconfig"' >> Kconfig
-        fi
-
-	make defconfig 2>&1 | grep warning && die "Broken config"
+	make olddefconfig 2>&1 | grep -i warning && die "Broken config"
+	make syncconfig 2>&1 | grep -i warning && die "Broken config"
 }
 
 src_install() {

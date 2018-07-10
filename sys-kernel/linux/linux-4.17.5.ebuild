@@ -83,13 +83,9 @@ pkg_postinst() {
 	cp /usr/share/linux-${PV}/* /boot/
 
 	if use initramfs; then
-		if use cryptsetup; then
-			GENKERNEL_ARGS=--luks
-		fi
+		use cryptsetup && GENKERNEL_ARGS=--luks
 		genkernel ${GENKERNEL_ARGS} initramfs --kerneldir=${S}
 	fi
 
-	if use grub; then
-		grub-mkconfig -o /boot/grub/grub.cfg
-	fi
+	use grub && grub-mkconfig -o /boot/grub/grub.cfg
 }

@@ -1,5 +1,9 @@
 # How to use
 
+    $ sudo eselect repository enable jollheef-overlay
+
+or
+
     $ sudo layman -a jollheef-overlay
 
 or

@@ -13,7 +13,7 @@ SRC_URI="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+grub +initramfs cryptsetup kspp"
+IUSE="+grub +initramfs +multilib cryptsetup kspp"
 
 DEPEND="sys-devel/make
 	sys-devel/binutils
@@ -57,6 +57,10 @@ src_prepare() {
 	fi
 
 	use kspp && apply_config ${FILESDIR}/kspp.config
+
+	if use multilib; then
+		config --enable IA32_EMULATION
+	fi
 
 	# /etc/portage/make.conf:
 	# KCONFIG="KVM KVM_INTEL"

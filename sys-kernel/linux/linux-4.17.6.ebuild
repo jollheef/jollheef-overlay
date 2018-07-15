@@ -58,9 +58,7 @@ src_prepare() {
 
 	use kspp && apply_config ${FILESDIR}/kspp.config
 
-	if use multilib; then
-		config --enable IA32_EMULATION
-	fi
+	use multilib && config --enable IA32_EMULATION
 
 	# /etc/portage/make.conf:
 	# KCONFIG="KVM KVM_INTEL"

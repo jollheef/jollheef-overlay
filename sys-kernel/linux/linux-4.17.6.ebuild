@@ -13,7 +13,7 @@ SRC_URI="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+grub +initramfs +multilib cryptsetup kspp"
+IUSE="+grub +initramfs +multilib cryptsetup kspp video_cards_intel"
 
 DEPEND="sys-devel/make
 	sys-devel/binutils
@@ -59,6 +59,11 @@ src_prepare() {
 	use kspp && apply_config ${FILESDIR}/kspp.config
 
 	use multilib && config --enable IA32_EMULATION
+
+	use video_cards_intel && {
+		config --enable DRM_I915
+		config --enable DRM_I915_ALPHA_SUPPORT
+	}
 
 	# /etc/portage/make.conf:
 	# KCONFIG="KVM KVM_INTEL"

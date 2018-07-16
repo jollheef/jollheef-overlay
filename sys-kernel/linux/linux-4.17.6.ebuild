@@ -72,6 +72,9 @@ src_prepare() {
 		config --enable ${i}
 	done
 
+	# --set-val duplicates and it produce warning :c
+	sed -i "s;CONFIG_EXTRA_FIRMWARE=\"\";CONFIG_EXTRA_FIRMWARE=\"${LINUX_FIRMWARE}\";" .config
+
 	make olddefconfig 2>&1 | grep -i warning && die "Broken config"
 	make syncconfig 2>&1 | grep -i warning && die "Broken config"
 }

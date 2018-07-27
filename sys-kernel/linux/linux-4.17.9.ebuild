@@ -16,10 +16,10 @@ KEYWORDS="~amd64"
 IUSE="+grub +initramfs +multilib cryptsetup kspp video_cards_intel"
 
 DEPEND="sys-devel/make
-	sys-devel/binutils
+	sys-devel/binutils:*
 	dev-lang/perl
 	sys-devel/bc
-	grub? ( sys-boot/grub )
+	grub? ( sys-boot/grub:* )
 	initramfs? ( sys-kernel/genkernel )"
 
 RDEPEND="${DEPEND}"

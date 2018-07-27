@@ -9,7 +9,7 @@ DESCRIPTION="IDA is the Interactive DisAssembler"
 SRC_URI="https://out7.hex-rays.com/files/idafree70_linux.run"
 HOMEPAGE="https://www.hex-rays.com/"
 
-LICENSE="EULA"
+LICENSE="IDA-EULA"
 SLOT="0"
 KEYWORDS="~amd64"
 

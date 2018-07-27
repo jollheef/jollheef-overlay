@@ -12,7 +12,7 @@ EGIT_BRANCH="master"
 DESCRIPTION="Cups filters for Kyocera FS-1040"
 HOMEPAGE="https://github.com/jollheef/rastertopksl-re/"
 
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

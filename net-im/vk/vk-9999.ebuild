@@ -10,7 +10,7 @@ DESCRIPTION="NCurses interface client for VK"
 HOMEPAGE="https://github.com/HaCk3Dq/vk"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="sys-libs/ncurses
 	dev-lang/dmd

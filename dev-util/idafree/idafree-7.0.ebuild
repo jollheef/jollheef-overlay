@@ -11,7 +11,7 @@ HOMEPAGE="https://www.hex-rays.com/"
 
 LICENSE="EULA"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RESTRICT="bindist strip"
 

@@ -23,7 +23,7 @@ SRC_URI=" x86? ( mirror://vmware/software/vmserver/${MY_PN}.i386.tar.gz )
 LICENSE="vmware"
 IUSE=""
 SLOT="0"
-KEYWORDS="-* x86 amd64"
+KEYWORDS="-* ~x86 ~amd64"
 RESTRICT="strip"
 
 DEPEND="

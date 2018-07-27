@@ -13,7 +13,7 @@ EGIT_COMMIT="v${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="dev-qt/qtcore:5 dev-qt/qtwidgets:5"

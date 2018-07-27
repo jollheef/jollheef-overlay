@@ -12,7 +12,7 @@ DESCRIPTION="Command line interface client for Signal"
 HOMEPAGE="https://github.com/AsamK/signal-cli.git"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="virtual/jdk dev-java/libmatthew-java"
 

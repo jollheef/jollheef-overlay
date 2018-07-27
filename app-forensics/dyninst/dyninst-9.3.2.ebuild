@@ -7,4 +7,4 @@ SRC_URI="https://github.com/dyninst/dyninst/archive/v${PV}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"

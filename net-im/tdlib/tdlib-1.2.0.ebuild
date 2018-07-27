@@ -13,7 +13,7 @@ EGIT_COMMIT="v${PV}"
 
 LICENSE="BSL-1.0"
 SLOT=0
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 src_prepare() {
 	sed -i \

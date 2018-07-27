@@ -12,7 +12,7 @@ HOMEPAGE="https://www.hopperapp.com/"
 
 LICENSE="EULA"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RESTRICT="bindist strip"
 

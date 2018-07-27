@@ -11,7 +11,7 @@ SRC_URI="https://packages.atlassian.com/maven/repository/public/com/atlassian/am
 
 LICENSE="EULA"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RESTRICT="bindist"
 

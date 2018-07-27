@@ -9,7 +9,7 @@ HOMEPAGE="http://code.dlang.org/"
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 SRC_URI="https://github.com/rejectedsoftware/dub/archive/v1.0.0.tar.gz"
 

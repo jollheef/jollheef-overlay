@@ -16,15 +16,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 src_unpack() {
-        git-2_src_unpack
-        cd $EGIT_SOURCEDIR
+	git-2_src_unpack
+	cd $EGIT_SOURCEDIR
 }
 
 src_install() {
-        exeinto /usr/libexec/cups/filter/
-        newexe bin/rastertokpsl-re rastertokpsl-re
-        newexe scripts/rastertokpsl-re-fixed rastertokpsl-re-fixed
+	exeinto /usr/libexec/cups/filter/
+	newexe bin/rastertokpsl-re rastertokpsl-re
+	newexe scripts/rastertokpsl-re-fixed rastertokpsl-re-fixed
 
-        insinto /usr/share/cups/model/Kyocera/
-        newins Kyocera_FS-1040GDI_RE.ppd Kyocera_FS-1040GDI_RE.ppd
+	insinto /usr/share/cups/model/Kyocera/
+	newins Kyocera_FS-1040GDI_RE.ppd Kyocera_FS-1040GDI_RE.ppd
 }

@@ -22,17 +22,17 @@ src_compile() {
 
 src_install() {
 	newbin build/install/signal-cli/bin/signal-cli signal-cli
-        dolib build/install/signal-cli/lib/*
+	dolib build/install/signal-cli/lib/*
 
-        sed -i 's/signal-cli/signal/' data/org.asamk.Signal.conf
-        insinto /etc/dbus-1/system.d/
-        doins data/org.asamk.Signal.conf
+	sed -i 's/signal-cli/signal/' data/org.asamk.Signal.conf
+	insinto /etc/dbus-1/system.d/
+	doins data/org.asamk.Signal.conf
 
-        insinto /usr/share/dbus-1/system-services/
-        doins data/org.asamk.Signal.service
+	insinto /usr/share/dbus-1/system-services/
+	doins data/org.asamk.Signal.service
 
 	newinitd "${FILESDIR}"/signal-cli.init signal-cli
-        newconfd "${FILESDIR}"/signal-cli.conf signal-cli
+	newconfd "${FILESDIR}"/signal-cli.conf signal-cli
 }
 
 pkg_postinst() {

@@ -8,8 +8,9 @@ inherit eutils
 
 DESCRIPTION="Atlassian SDK"
 SRC_URI="https://packages.atlassian.com/maven/repository/public/com/atlassian/amps/atlassian-plugin-sdk/${PV}/atlassian-plugin-sdk-${PV}.tar.gz"
+HOMEPAGE="https://developer.atlassian.com/server/framework/atlassian-sdk"
 
-LICENSE="EULA"
+LICENSE="Atlassian-Developer-Terms"
 SLOT="0"
 KEYWORDS="~amd64"
 

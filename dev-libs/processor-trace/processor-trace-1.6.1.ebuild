@@ -1,16 +1,25 @@
 # Copyright 1999-2018 Gentoo Foundation
-# Author: Mikhail Klementev <jollheef@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit git-r3 cmake-utils
+inherit cmake-utils
 
 DESCRIPTION="Intel(R) Processor Trace decoder library"
 HOMEPAGE="https://github.com/01org/processor-trace"
-EGIT_REPO_URI="https://github.com/01org/processor-trace.git"
-EGIT_COMMIT="v${PV}"
+SRC_URI="https://github.com/01org/processor-trace/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT=0
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 -*"
+IUSE="doc"
+
+DEPEND="doc? ( app-text/pandoc )"
+
+src_configure() {
+	local mycmakeargs=(
+		-DMAN=$(usex doc)
+	)
+
+	cmake-utils_src_configure
+}

@@ -15,12 +15,12 @@ RDEPEND="net-im/pidgin"
 DEPEND="${RDEPEND}"
 
 src_compile() {
-    cd "${T}"
-    cmake -DCMAKE_INSTALL_PREFIX=/usr "${S}"
-    emake
+	cd "${T}"
+	cmake -DCMAKE_INSTALL_PREFIX=/usr "${S}"
+	emake
 }
 
 src_install() {
-    cd "${T}"
-    emake DESTDIR="${D}" install
+	cd "${T}"
+	emake DESTDIR="${D}" install
 }

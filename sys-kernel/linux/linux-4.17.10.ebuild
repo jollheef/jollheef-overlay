@@ -1,6 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
-# Author: Mikhail Klementev <jollheef@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
+
+# Author: Mikhail Klementev <jollheef@riseup.net>
 
 EAPI=6
 

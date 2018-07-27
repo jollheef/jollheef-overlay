@@ -5,7 +5,7 @@ EAPI=6
 
 inherit eutils
 
-DESCRIPTION="IDA is the Interactive DisAssembler: the world's smartest and most feature-full disassembler, which many software security specialists are familiar with."
+DESCRIPTION="IDA is the Interactive DisAssembler"
 SRC_URI="https://out7.hex-rays.com/files/idafree70_linux.run"
 HOMEPAGE="https://www.hex-rays.com/"
 

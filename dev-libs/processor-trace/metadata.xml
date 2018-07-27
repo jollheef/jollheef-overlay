@@ -5,10 +5,4 @@
 		<email>jollheef@riseup.net</email>
 		<name>Mikhail Klementev</name>
 	</maintainer>
-	<use>
-		<flag name="grub">Build grub</flag>
-		<flag name="initramfs">Generate initramfs</flag>
-		<flag name="cryptsetup">Support encryption</flag>
-		<flag name="kspp">Use KSPP recommended configuration values</flag>
-	</use>
 </pkgmetadata>

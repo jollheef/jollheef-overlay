@@ -10,7 +10,7 @@ DESCRIPTION="Disassembler and decompiler for 32/64 bits intel and ARM executable
 SRC_URI="https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-v4-${PV}-Linux.pkg.tar.xz"
 HOMEPAGE="https://www.hopperapp.com/"
 
-LICENSE="EULA"
+LICENSE="Hopper-Disassembler-LA CPL-1.0 UoI-NCSA BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 

@@ -36,5 +36,5 @@ src_install() {
 
 	exeinto /opt/hopper-v4/bin
 	doexe opt/hopper-v4/bin/Hopper
-	dosym /opt/hopper-v4/bin/Hopper /usr/bin/hopper
+	dosym opt/hopper-v4/bin/Hopper /usr/bin/hopper
 }

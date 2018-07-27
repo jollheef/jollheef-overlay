@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/jollheef/jollheef-overlay.svg?branch=master)](https://travis-ci.org/jollheef/jollheef-overlay)
+![Travis (.org)](https://img.shields.io/travis/jollheef/jollheef-overlay.svg?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/jollheef/jollheef-overlay.svg?style=for-the-badge)
 
 # How to use
 

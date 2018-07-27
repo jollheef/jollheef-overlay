@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+  <flag name="grub">Build grub</flag>
+  <flag name="initramfs">Generate initramfs</flag>
+  <flag name="cryptsetup">Support encryption</flag>
+  <flag name="kspp">Use KSPP recommended configuration values</flag>
+</use>
+</pkgmetadata>

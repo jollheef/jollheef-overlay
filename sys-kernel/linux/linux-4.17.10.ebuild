@@ -57,7 +57,7 @@ src_prepare() {
 		config --enable CRYPTO_AES_NI_INTEL
 	fi
 
-	use kspp && apply_config ${FILESDIR}/kspp.config
+	use kspp && apply_config "${FILESDIR}/kspp.config"
 
 	use multilib && config --enable IA32_EMULATION
 

@@ -9,7 +9,7 @@ SRC_URI="https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2018q2/gcc-a
 
 LICENSE="BSD GPL-2 GPL-3 LGPL-2 LGPL-3 MIT NEWLIB ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 -*"
+KEYWORDS="-* ~amd64 ~x86"
 RESTRICT="strip binchecks"
 
 S="${WORKDIR}"/gcc-arm-none-eabi-7-2018-q2-update

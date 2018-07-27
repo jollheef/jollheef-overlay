@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jollheef/jollheef-overlay.svg?branch=master)](https://travis-ci.org/jollheef/jollheef-overlay)
+
 # How to use
 
     $ sudo eselect repository enable jollheef-overlay

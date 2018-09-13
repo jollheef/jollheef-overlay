@@ -12,13 +12,14 @@ SRC_URI="https://github.com/01org/processor-trace/archive/v${PV}.tar.gz -> ${P}.
 LICENSE="BSD"
 SLOT=0
 KEYWORDS="-* ~amd64"
-IUSE="doc"
+IUSE="doc test"
 
 DEPEND="doc? ( app-text/pandoc )"
 
 src_configure() {
 	local mycmakeargs=(
 		-DMAN=$(usex doc)
+		-DPTUNIT=$(usex test)
 	)
 
 	cmake-utils_src_configure

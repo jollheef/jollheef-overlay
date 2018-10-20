@@ -10,5 +10,6 @@
 		<flag name="initramfs">Generate initramfs</flag>
 		<flag name="cryptsetup">Support encryption</flag>
 		<flag name="kspp">Use KSPP recommended configuration values</flag>
+		<flag name="docker">Enable Docker support</flag>
 	</use>
 </pkgmetadata>

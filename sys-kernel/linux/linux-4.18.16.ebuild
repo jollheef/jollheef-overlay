@@ -12,14 +12,15 @@ SRC_URI="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+grub +initramfs +multilib cryptsetup kspp video_cards_intel"
+IUSE="+grub +initramfs +multilib cryptsetup kspp docker video_cards_intel"
 
 DEPEND="sys-devel/make
 	sys-devel/binutils:*
 	dev-lang/perl
 	sys-devel/bc
 	grub? ( sys-boot/grub:* )
-	initramfs? ( sys-kernel/genkernel )"
+	initramfs? ( sys-kernel/genkernel )
+	docker? ( app-emulation/docker )"
 
 RDEPEND="${DEPEND}"
 
@@ -56,6 +57,8 @@ src_prepare() {
 	fi
 
 	use kspp && apply_config "${FILESDIR}/kspp.config"
+
+	use docker && apply_config "${FILESDIR}/docker.config"
 
 	use multilib && config --enable IA32_EMULATION
 
